@@ -53,4 +53,4 @@
         └── 📑 application.properties
         
 ## 👩‍💻 API 명세서
-### [🔗 Link]()
+### [🔗 Link](https://documenter.getpostman.com/view/15687215/UVysxFcQ)
