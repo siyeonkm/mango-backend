@@ -3,24 +3,20 @@ package com.mango.healthymango.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@Entity
-@Table(name="leaderscore")
+@Document(collection = "LeaderScore")
 public class LeaderScore {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long leaderscoreNum;
+    private String id;
 
-    @ManyToOne
-    @JoinColumn(name = "user")
     private User user;
 
-    @Column
     private Integer dailyScore;
 
     @Builder

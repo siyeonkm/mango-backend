@@ -5,10 +5,7 @@ import com.mango.healthymango.service.UserService;
 import com.mango.healthymango.web.dto.LeaderRequestDto;
 import com.mango.healthymango.web.dto.UserRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -44,6 +41,15 @@ public class UserApiController {
         {
             return "exist";
         }
+    }
+
+    @DeleteMapping("/api/user")
+    public String userDelete(@RequestBody UserRequestDto userdto) {
+        User user = userService.findUser(userdto.getUsername());
+        if (user != null) {
+            return userService.deleteUser(user);
+        }
+        else throw new IllegalArgumentException("없는 유저이기에 삭제할 수 없습니다.");
     }
 
     @GetMapping("/api/server/connection")

@@ -3,23 +3,19 @@ package com.mango.healthymango.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@Entity
-@Table(name="leadertotal")
+@Document(collection = "LeaderTotal")
 public class LeaderTotal {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long leadertotalNum;
+    private String id;
 
-    @ManyToOne
-    @JoinColumn(name = "user")
     private User user;
 
-    @Column
     private Integer totalScore;
 
     @Builder

@@ -7,12 +7,12 @@ import lombok.Getter;
 
 @Getter
 public class LeaderTotalResponseDto {
-    private Long leaderNum;
+    private String id;
     private String user;
     private Integer score;
 
     public LeaderTotalResponseDto(LeaderTotal entity) {
-        this.leaderNum = entity.getLeadertotalNum();
+        this.id = entity.getId();
         this.user = entity.getUser().getUsername();
         this.score = entity.getTotalScore();
     }

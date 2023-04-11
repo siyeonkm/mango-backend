@@ -3,20 +3,18 @@ package com.mango.healthymango.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@Entity
-@Table(name="user")
+@Document(collection = "User")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userNum;
 
-    @Column
+    @Id
+    private String id;
+
     private String username;
 
     @Builder

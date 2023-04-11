@@ -6,12 +6,12 @@ import lombok.Getter;
 
 @Getter
 public class LeaderScoreResponseDto {
-    private Long leaderNum;
+    private String id;
     private String user;
     private Integer score;
 
     public LeaderScoreResponseDto(LeaderScore entity) {
-        this.leaderNum = entity.getLeaderscoreNum();
+        this.id = entity.getId();
         this.user = entity.getUser().getUsername();
         this.score = entity.getDailyScore();
     }

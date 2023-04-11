@@ -38,4 +38,15 @@ public class UserService {
         UserRequestDto userdto = new UserRequestDto("익명");
         return user;
     }
+
+    public String deleteUser(User user) {
+        try{
+            userRepository.delete(user);
+            return "success";
+        }
+        catch(Exception e) {
+            throw new IllegalArgumentException("삭제도중 오류가 발생했습니다");
+        }
+
+    }
 }
