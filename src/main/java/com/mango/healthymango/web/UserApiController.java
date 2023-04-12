@@ -67,7 +67,7 @@ public class UserApiController {
 
     @GetMapping("api/version")
     public String returnVersion() {
-        String version = "1.6.0";
+        String version = "3.0.0";
         return version;
     }
 }
